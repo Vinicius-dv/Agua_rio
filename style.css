@@ -54,6 +54,7 @@
 }
 
 .ul_itens li a{
+    font-size: 1.2em;
     color: black;
     transition: color 0.5s;
     text-decoration: none;
@@ -78,7 +79,8 @@
     .top_header{
         height: 100%;
         flex-direction: column;
-        padding-top: 30px;
+        padding-top: 50px;
+        padding-bottom: 10px;
     }
     .main_header{
         height: 120px;
@@ -149,6 +151,11 @@
         top: 0%;
         cursor: pointer;
         font-size: 1.8em;
+    }
+
+    .span_header{
+        display: flex;
+        flex-direction: column;
     }
 }
 
