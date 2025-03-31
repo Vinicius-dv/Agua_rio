@@ -73,6 +73,10 @@
     display: none;
 }
 
+.span_header{
+    margin-right: 10px;
+}
+
 
 
 @media (max-width: 1170px) {
@@ -88,6 +92,7 @@
     .top_header img{
         height: 80px;
         padding-right: 30px;
+        margin-bottom: 15px;
     }
     .ul_itens {
         display: none;
@@ -156,6 +161,13 @@
     .span_header{
         display: flex;
         flex-direction: column;
+        margin-right: 0px;
+    }
+    .margin_comercio{
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
     }
 }
 
