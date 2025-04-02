@@ -132,6 +132,53 @@
 
 
 /*Estilos main*/
+
+.container {
+    background: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 4%;
+    margin-top: 50px;
+}
+
+.container h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    background: blue;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.form button:hover {
+    background: rgba(2, 2, 222, 0.94);
+}
 .main_texto{
     margin-left: 4%;
     height: auto;
@@ -251,6 +298,10 @@
         text-align: center;
     }
 
+    .container{
+        max-width: 95%;
+    }
+
 }
 /*Fim estilos main*/
 
@@ -258,7 +309,7 @@
 /*Estilos footer*/
 .main_footer{
     margin-top: 100px;
-    height: 300px;
+    height: 350px;
     width: 100%;
     background: linear-gradient(to top,#244093, rgb(4, 4, 211));
 }
@@ -276,7 +327,6 @@
     justify-content: center;
     align-items: center;
     gap: 70px;
-
 }
 
 .itens_footer{
@@ -302,17 +352,23 @@
 
 .div_dados{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     margin-top: 50px;
 }
 
-.div_dados p,span{
+.div_dados{
     color: white;
-    flex-direction: column;
 }
+
+.p_bottom{
+    margin-top: 30px;
+}
+
+
 @media (max-width: 1170px) {
+  .main_footer{
+    height: 280px;
+  }
   .itens_footer{
     display: none;
   }
