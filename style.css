@@ -367,7 +367,7 @@
 
 @media (max-width: 1170px) {
   .main_footer{
-    height: 280px;
+    height: auto;
   }
   .itens_footer{
     display: none;
@@ -391,6 +391,7 @@
     margin-top: 50px;
     font-size: 3vw;
     font-weight: 500;
+    margin-bottom: 15px;
   }
 }
 
