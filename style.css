@@ -79,6 +79,14 @@
     text-align: center;
 }
 
+.email_span{
+  display: none;
+}
+
+.span_header{
+  display: none;
+}
+
 
 
 @media (max-width: 1170px) {
@@ -137,7 +145,7 @@
     background: #fff;
     padding: 20px;
     width: 100%;
-    max-width: 80%;
+    max-width: 50%;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: 4%;
@@ -191,7 +199,7 @@
 .div_texto p{
     font-size: 1.6em;
     font-weight: 400;
-    line-height: 60px;
+    line-height: 75px;
 }
 
 .div_button_texto{
@@ -242,7 +250,7 @@
     font-size: 1.6em;
     font-weight: 400;
     margin-bottom: 20px;
-    line-height: 60px;
+    line-height: 75px;
 }
 
 
@@ -376,6 +384,7 @@
   .div_dados{
     text-align: center;
     gap: 10px;
+    width: 80%;
   }
   .p_top{
     font-size: 4vw;
