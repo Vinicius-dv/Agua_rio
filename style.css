@@ -281,6 +281,77 @@
 }
 
 
+.comentarios {
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+.comentarios h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.comentarios p {
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.main_cards_comentarios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cards_comentarios {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.icon_container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon_container i {
+    font-size: 20px;
+    color: #333;
+}
+
+.name_cards {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.role_cards {
+    font-style: italic;
+    color: #666;
+    font-size: 14px;
+}
 @media (max-width: 1170px) {
     .main_texto{
         margin-left: 0%;
@@ -339,6 +410,16 @@
 
     .container{
         max-width: 95%;
+    }
+
+    .main_cards_comentarios {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards_comentarios {
+        width: 90%;
+        max-width: 300px;
     }
 
 }
