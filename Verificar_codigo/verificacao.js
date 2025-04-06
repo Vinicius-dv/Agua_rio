@@ -27,7 +27,6 @@ btn_cad.addEventListener('click',(e)=>{
     })
 })
 
-
 const btn_reenviar = document.getElementById('reenviar_codigo')
 
 btn_reenviar.addEventListener('click', () => {
