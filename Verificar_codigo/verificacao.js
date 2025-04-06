@@ -45,7 +45,7 @@ btn_reenviar.addEventListener('click', () => {
     btn_reenviar.disabled = false
   }, 30000)
 
-  fetch('http://localhost:3000/reenviar_codigo', {
+  fetch('https://agua-rio.onrender.com/reenviar_codigo', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email })
