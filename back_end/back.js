@@ -6,10 +6,7 @@ app.use(express.json())
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
-app.use(cors({
-  origin: 'http://127.0.0.1:5500',
-  credentials: true
-}))
+app.use(cors())
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const path = require('path')
@@ -22,7 +19,7 @@ app.use('/Verificar_codigo', express.static(path.join(__dirname, '../Verificar_c
 app.use(express.static(path.join(__dirname, '../Perfil_user')))
 app.use('/Login', express.static(path.join(__dirname, '../Login')))
 
-mongoose.connect('mongodb://127.0.0.1:27017/sistema_email', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Conectado ao MongoDB!'))
 .catch(err => console.error('Erro ao conectar ao MongoDB:', err))
 
