@@ -54,14 +54,14 @@ const transporter = nodemailer.createTransport({
 
 const dados = {}
 
-/*function verificar_acesso(){
+function verificar_acesso(){
     return(req,res)=>{
       const token = req.cookies.token
       if(!token){
         return res.status(401).send('acesso negado')
     }
     }
-}*/
+}
 
 
 app.post('/receber_codigo',(req,res)=>{
@@ -199,21 +199,22 @@ app.post('/reenviar_codigo', (req, res) => {
   })
 })
 
-app.get('/info_user',(req,res)=>{
-  const token = req.cookies.token
-
-  if (!token) {
-    return res.json({ logado: false })
-  }
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-    if (err) {
-      return res.json({ logado: false })
-    }
-
-    return res.json({ logado: true, email: user.email })
+  
+app.get('/info_user',verificar_acesso,(req,res)=>{
+  cadastro.find()
+  .then(projetos=>{
+      if(!projetos){
+          return res.status(400).json({
+              success:false,
+              message:'Nenhum projeto existente'
+          })
+      }
+      return res.status(200).json({
+          success:true,
+          projetos
+      })
   })
-  })
+})
 
 app.get('/verificar_codigo', (req, res) => {
     res.sendFile(path.join(__dirname, '../Verificar_codigo/verificar_codigo.html'));
