@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const linkLogout = document.getElementById("link_sair")
       if (linkLogout) linkLogout.style.display = "block"
+
+      const linkPerfil = document.getElementById("link_perfil")
+      if (linkPerfil) linkPerfil.style.display = "block"
     } else {
       const cardCadastro = document.getElementById("main_cadastro")
       if (cardCadastro) cardCadastro.style.display = "block"
@@ -29,6 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const linkLogout = document.getElementById("link_sair")
       if (linkLogout) linkLogout.style.display = "none"
+
+      const linkPerfil = document.getElementById("link_perfil")
+      if (linkPerfil) linkPerfil.style.display = "none"
     }
   })
   .catch(err => {
