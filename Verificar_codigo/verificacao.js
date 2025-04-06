@@ -4,7 +4,7 @@ btn_cad.addEventListener('click',(e)=>{
     const codigo = document.getElementById('codigo').value
     const email = document.getElementById('email_user').value
     const mensagem = document.getElementById('mensagem')
-    fetch('http://localhost:3000/verificar_codigo',{
+    fetch('https://agua-rio.onrender.com/verificar_codigo',{
         method:'Post',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({codigo:codigo,email:email})
