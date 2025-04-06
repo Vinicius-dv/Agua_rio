@@ -88,20 +88,6 @@
     border: 2px solid red;
 }
 
-input[type="checkbox"] {
-    margin-top: 30px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-
-input[type="checkbox"] {
-    margin-top: 30px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-  }
-
 
   @media (max-width: 1170px) {
     .main_cadastro{
