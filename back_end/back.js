@@ -10,7 +10,7 @@ app.use(cors({
   origin: 'http://127.0.0.1:5500',
   credentials: true
 }))
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const path = require('path')
 require('dotenv').config()
