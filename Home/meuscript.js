@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:3000/info_user", {
+  fetch("https://agua-rio.onrender.com/info_user", {
     credentials: "include"
   })
   .then(res => res.json())
@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const linkCadastro = document.getElementById("link_cadastro")
       if (linkCadastro) linkCadastro.style.display = "none"
 
+      
+      const link_login = document.getElementById("link_login")
+      if (link_login) link_login.style.display = "none"
+
       const linkLogout = document.getElementById("link_sair")
       if (linkLogout) linkLogout.style.display = "block"
     } else {
@@ -19,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const linkCadastro = document.getElementById("link_cadastro")
       if (linkCadastro) linkCadastro.style.display = "block"
+
+      const link_login = document.getElementById("link_login")
+      if (link_login) link_login.style.display = "block"
 
       const linkLogout = document.getElementById("link_sair")
       if (linkLogout) linkLogout.style.display = "none"
@@ -86,7 +93,7 @@ btn_cad.addEventListener('click',(e)=>{
   const cpf = document.getElementById('cpf_user').value
   const telefone = document.getElementById('tel_user').value
 
-  fetch('http://localhost:3000/receber_codigo',{
+  fetch('https://agua-rio.onrender.com/receber_codigo',{
     method:'Post',
     headers:{
       'Content-Type':'application/json'
@@ -114,8 +121,10 @@ btn_cad.addEventListener('click',(e)=>{
 })
 
 
+
+
 document.getElementById('link_sair').addEventListener('click', () => {
-  fetch('http://localhost:3000/logout', {
+  fetch('https://agua-rio.onrender.com/logout', {
     method: 'DELETE',
     credentials: 'include'
   })

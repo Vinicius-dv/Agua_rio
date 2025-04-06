@@ -20,6 +20,7 @@ require('dotenv').config()
 app.use(express.static(path.join(__dirname, '../Home')))
 app.use('/Verificar_codigo', express.static(path.join(__dirname, '../Verificar_codigo')))
 app.use(express.static(path.join(__dirname, '../Perfil_user')))
+app.use('/Login', express.static(path.join(__dirname, '../Login')))
 
 mongoose.connect('mongodb://127.0.0.1:27017/sistema_email', { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('Conectado ao MongoDB!'))
@@ -113,16 +114,6 @@ app.post('/verificar_codigo',(req,res)=>{
     return novoUsuario.save()
   })
   .then(() => {
-    const token = jwt.sign(
-      { email: dados_temporario.email },
-      process.env.JWT_SECRET,
-      { expiresIn: '1h' }
-    )
-    res.cookie('token', token, {
-      httpOnly: true,
-      maxAge: 3600000,
-      sameSite: 'lax'
-    })
     res.status(201).json({ message: 'Usuário cadastrado com sucesso', success: true })
     delete dados[email]
   })
@@ -131,6 +122,46 @@ app.post('/verificar_codigo',(req,res)=>{
     res.status(500).json({ message: 'Erro ao cadastrar usuário', success: false })
   })
  
+})
+
+
+app.post('/login', (req, res) => {
+  const { email, senha } = req.body
+
+  cadastro.findOne({ email })
+  .then(usuario => {
+      if (!usuario) {
+          return res.status(400).json({ message: 'Usuário não encontrado' })
+      }
+      bcrypt.compare(senha, usuario.senha)
+      .then(senhaValida => {
+          if (!senhaValida) {
+              return res.status(400).json({ message: 'Senha incorreta' })
+          }
+
+          const token = jwt.sign(
+              { email: usuario.email },
+              process.env.JWT_SECRET,
+              { expiresIn: '1h' }
+          )
+
+          res.cookie('token', token, {
+              httpOnly: true,
+              maxAge: 3600000,
+              sameSite: 'lax'
+          });
+
+          return res.status(200).json({ message: 'Login bem-sucedido', success: true })
+      })
+      .catch(err => {
+          console.error('Erro ao comparar senha:', err)
+          return res.status(500).json({ message: 'Erro ao autenticar usuário', success: false })
+      })
+  })
+  .catch(err => {
+      console.error('Erro ao buscar usuário:', err);
+      return res.status(500).json({ message: 'Erro ao buscar usuário', success: false })
+  })
 })
 
 
@@ -180,6 +211,10 @@ app.get('/info_user',(req,res)=>{
 app.get('/verificar_codigo', (req, res) => {
     res.sendFile(path.join(__dirname, '../Verificar_codigo/verificar_codigo.html'));
 })
+
+app.get('/Login', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Login/login.html'));
+})
 app.delete('/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
@@ -192,3 +227,15 @@ app.delete('/logout', (req, res) => {
 app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000')
 })
+
+
+/*const token = jwt.sign(
+  { email: dados_temporario.email },
+  process.env.JWT_SECRET,
+  { expiresIn: '1h' }
+)
+res.cookie('token', token, {
+  httpOnly: true,
+  maxAge: 3600000,
+  sameSite: 'lax'
+})*/
