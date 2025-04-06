@@ -6,7 +6,11 @@ app.use(express.json())
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 app.use(cookieParser())
-app.use(cors())
+app.use(cors({
+  origin: 'https://agua-rio.onrender.com',
+  credentials: true
+}))
+
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const path = require('path')
