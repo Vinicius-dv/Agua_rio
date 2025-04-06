@@ -14,7 +14,7 @@ btn_cad.addEventListener('click',(e)=>{
         if(dados.success){
             mensagem.innerText = dados.message
             mensagem.style.color = 'green'
-            window.location.href = '../index.html'
+            window.location.href = '../Login/login.html'
         }else{
             mensagem.innerText = dados.mensagem
             mensagem.style.color = 'red'
