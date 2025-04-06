@@ -23,7 +23,10 @@ app.use('/Verificar_codigo', express.static(path.join(__dirname,'../Verificar_co
 app.use(express.static(path.join(__dirname, '../Perfil_user')))
 app.use('/Login', express.static(path.join(__dirname, '../Login')))
 app.use(express.static(path.join(__dirname, '../imagens')))
-app.use(express.static(path.join(__dirname, '../logos/fwdlogocontasefaturas')))
+app.use('/logos', express.static(path.join(__dirname, '../logos/fwdlogocontasefaturas')))
+app.use('/imagens', express.static(path.join(__dirname, '../imagens')));
+
+
 
 console.log("URI do Mongo:", process.env.MONGO_URI)
 mongoose.connect(process.env.MONGO_URI)
