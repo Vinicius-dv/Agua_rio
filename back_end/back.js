@@ -19,10 +19,11 @@ require('dotenv').config()
 
 
 app.use(express.static(path.join(__dirname, '../Home')))
-app.use('/Verificar_codigo', express.static(path.join(__dirname, '../Verificar_codigo')))
+app.use('/Verificar_codigo', express.static(path.join(__dirname,'../Verificar_codigo')))
 app.use(express.static(path.join(__dirname, '../Perfil_user')))
 app.use('/Login', express.static(path.join(__dirname, '../Login')))
 
+console.log("URI do Mongo:", process.env.MONGO_URI)
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Conectado ao MongoDB!'))
 .catch(err => console.error('Erro ao conectar ao MongoDB:', err))
