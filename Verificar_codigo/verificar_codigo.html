@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verificação de E-mail</title>
+  <link rel="stylesheet" href="verificacao.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Verifique seu E-mail</h1>
+    <p>Enviamos um código para confirmar sua conta.</p>
+
+    <form action="" >
+      <input type="email" name="email" id="email_user" placeholder="Digite seu e-mail" required/>
+      <input type="number" name="codigo" id="codigo" placeholder="Digite seu código" required>
+      <button id="btn_cad">Entrar</button>
+      <button type="button" id="reenviar_codigo">Reenviar código</button>
+      <div style="text-align: center;" id="mensagem"></div>
+    </form>
+  </div>
+</body>
+</html>
+<script src="verificacao.js"></script>
