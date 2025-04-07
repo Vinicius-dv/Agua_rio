@@ -54,11 +54,15 @@ btn_dados.addEventListener('click', (e) => {
         if (dados.success) {
             mensagem.innerText = 'Dados atualizados com sucesso!'
             mensagem.style.color = 'green'
-            mensagem.innerText = ''
+            setTimeout(()=>{
+              mensagem.innerText = ''
+            },2000)
         } else {
             mensagem.innerText = 'Erro ao atualizar'
             mensagem.style.color = 'red'
-            mensagem.innerText = ''
+            setTimeout(()=>{
+              mensagem.innerText = ''
+            },2000)
         }
     })
     .catch(err => {
