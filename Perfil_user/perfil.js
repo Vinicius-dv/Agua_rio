@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 })
 
 const btn_dados = document.getElementById('btn_dados')
-btn_dados.addEventListener('click', () => {
+btn_dados.addEventListener('click', (e) => {
+    e.preventDefault()
     const mensagem = document.getElementById('mensagem')
     fetch('https://agua-rio.onrender.com/atualizar_perfil', {
         method: 'PUT',
