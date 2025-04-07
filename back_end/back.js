@@ -54,14 +54,7 @@ const transporter = nodemailer.createTransport({
 
 const dados = {}
 
-function verificar_acesso(){
-    return(req,res)=>{
-      const token = req.cookies.token
-      if(!token){
-        return res.status(401).send('acesso negado')
-    }
-    }
-}
+
 
 
 app.post('/receber_codigo',(req,res)=>{
@@ -216,21 +209,45 @@ app.get('/info_user',(req,res)=>{
   })
   })
 
-app.get('/dados_perfil',verificar_acesso,(req,res)=>{
-  cadastro.find()
-  .then(projetos=>{
-      if(!projetos){
-          return res.status(400).json({
-              success:false,
-              message:'Nenhum projeto existente'
-          })
+  function verificar_acesso() {
+    return (req, res, next) => {
+      const token = req.cookies.token
+      if (!token) {
+        return res.status(401).json({ success: false, message: 'Token não encontrado' })
       }
-      return res.status(200).json({
-          success:true,
-          projetos
+  
+      jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+        if (err) {
+          return res.status(403).json({ success: false, message: 'Token inválido' })
+        }
+  
+        req.user = decoded
+        next()
       })
+    }
+  }
+
+  app.get('/dados_perfil', verificar_acesso(), (req, res) => {
+    const token = req.cookies.token
+    if (!token) return res.status(401).json({ success: false, message: 'Sem token' })
+  
+    jwt.verify(token, process.env.JWT_SECRET, (err, userDecoded) => {
+      if (err) return res.status(403).json({ success: false, message: 'Token inválido' })
+  
+      cadastro.findOne({ email: userDecoded.email })
+        .then(usuario => {
+          if (!usuario) {
+            return res.status(404).json({ success: false, message: 'Usuário não encontrado' })
+          }
+          return res.status(200).json({ success: true, usuario })
+        })
+        .catch(err => {
+          console.error(err)
+          return res.status(500).json({ success: false, message: 'Erro ao buscar dados' })
+        })
     })
-})
+  })
+
 
 
 app.get('/verificar_codigo', (req, res) => {
