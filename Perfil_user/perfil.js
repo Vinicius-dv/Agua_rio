@@ -53,10 +53,10 @@ btn_dados.addEventListener('click', (e) => {
     .then(res => res.json())
     .then(dados => {
         if (dados.success) {
-            mensagem.innerHTML = 'Dados atualizados com sucesso!'
+            mensagem.innerText = 'Dados atualizados com sucesso!'
             mensagem.style.color = 'green'
         } else {
-            mensagem.innerHTML = 'Erro ao atualizar'
+            mensagem.innerText = 'Erro ao atualizar'
             mensagem.style.color = 'red'
         }
     })
