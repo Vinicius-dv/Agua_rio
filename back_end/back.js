@@ -234,11 +234,15 @@ app.get('/dados_perfil',verificar_acesso,(req,res)=>{
 
 
 app.get('/verificar_codigo', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Verificar_codigo/verificar_codigo.html'));
+    res.sendFile(path.join(__dirname, '../Verificar_codigo/verificar_codigo.html'))
 })
 
 app.get('/Login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Login/login.html'));
+  res.sendFile(path.join(__dirname, '../Login/login.html'))
+})
+
+app.get('/Perfil_user/perfil.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Perfil_user/perfil.html'))
 })
 app.delete('/logout', (req, res) => {
   res.clearCookie('token', {
