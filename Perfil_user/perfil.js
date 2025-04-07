@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded',(e)=>{
-    e.preventDefault()
-    const nome_user = document.getElementById('nome_user').value
-    const email_user = document.getElementById('email_user').value
-    const senha_user = document.getElementById('senha_user').value
-    const matricula_user = document.getElementById('matricula_user').value
-    const cpf_user = document.getElementById('cpf_user').value
-    const telefone_user = document.getElementById('telefone_user').value
-    fetch('https://agua-rio.onrender.com/info_user',{
+    const nome_user = document.getElementById('nome_user')
+    const email_user = document.getElementById('email_user')
+    const senha_user = document.getElementById('senha_user')
+    const matricula_user = document.getElementById('matricula_user')
+    const cpf_user = document.getElementById('cpf_user')
+    const telefone_user = document.getElementById('telefone_user')
+    fetch('https://agua-rio.onrender.com/dados_perfil',{
         method:'get'
     })
     .then(res=>res.json())
