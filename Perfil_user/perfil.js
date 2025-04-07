@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 const btn_dados = document.getElementById('btn_dados')
 btn_dados.addEventListener('click', (e) => {
     e.preventDefault()
+    const nome = document.getElementById('nome_user').value
+    const email = document.getElementById('email_user').value
+    const senha = document.getElementById('senha_user').value
+    const matricula = document.getElementById('matricula_user').value
+    const cpf = document.getElementById('cpf_user').value
+    const telefone = document.getElementById('telefone_user').value
     const mensagem = document.getElementById('mensagem')
     fetch('https://agua-rio.onrender.com/atualizar_perfil', {
         method: 'PUT',
