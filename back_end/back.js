@@ -200,7 +200,23 @@ app.post('/reenviar_codigo', (req, res) => {
 })
 
   
-app.get('/info_user',verificar_acesso,(req,res)=>{
+app.get('/info_user',(req,res)=>{
+  const token = req.cookies.token
+
+  if (!token) {
+    return res.json({ logado: false })
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.json({ logado: false })
+    }
+
+    return res.json({ logado: true, email: user.email })
+  })
+  })
+
+app.get('/dados_perfil',verificar_acesso,(req,res)=>{
   cadastro.find()
   .then(projetos=>{
       if(!projetos){
@@ -213,8 +229,9 @@ app.get('/info_user',verificar_acesso,(req,res)=>{
           success:true,
           projetos
       })
-  })
+    })
 })
+
 
 app.get('/verificar_codigo', (req, res) => {
     res.sendFile(path.join(__dirname, '../Verificar_codigo/verificar_codigo.html'));
