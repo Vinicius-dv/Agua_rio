@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     .then(res=>res.json())
     .then(dados=>{
         if(dados.success){
-            nome_user.innerText = dados.projetos.nome
-            email_user.innerText = dados.projetos.email
-            senha_user.innerText = dados.projetos.senha
-            matricula_user.innerText = dados.projetos.matricula
-            cpf_user.innerText = dados.projetos.cpf
-            telefone_user.innerText = dados.projetos.telefone
+            nome_user.value = dados.projetos.nome
+            email_user.value = dados.projetos.email
+            senha_user.value = dados.projetos.senha
+            matricula_user.value = dados.projetos.matricula
+            cpf_user.value = dados.projetos.cpf
+            telefone_user.value = dados.projetos.telefone
         }
     })
     .catch(err=>{
