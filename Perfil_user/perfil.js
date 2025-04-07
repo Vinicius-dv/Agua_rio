@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             const user = dados.usuario
             nome_user.value = user.nome
             email_user.value = user.email
-            senha_user.value = user.senha
             matricula_user.value = user.matricula
             cpf_user.value = user.cpf
             telefone_user.value = user.telefone
