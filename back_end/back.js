@@ -300,11 +300,7 @@ app.get('/verificar_codigo', (req, res) => {
 
 app.get('/Login', (req, res) => {
   res.sendFile(path.join(__dirname, '../Login/login.html'))
-})
-
-app.get('/perfil.html',verificar_acesso(req, res) => {
-  res.sendFile(path.join(__dirname, '../Perfil_user/perfil.html'))
-})
+}
 
 app.delete('/logout', (req, res) => {
   res.clearCookie('token', {
