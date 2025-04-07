@@ -27,3 +27,33 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 })
 
 const btn_dados = document.getElementById('btn_dados')
+btn_dados.addEventListener('click', () => {
+    const mensagem = document.getElementById('mensagem')
+    fetch('https://agua-rio.onrender.com/atualizar_perfil', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+            nome,
+            senha,
+            matricula,
+            cpf,
+            telefone
+        })
+    })
+    .then(res => res.json())
+    .then(dados => {
+        if (dados.success) {
+            mensagem.innerHTML = 'Dados atualizados com sucesso!'
+            mensagem.style.color = 'green'
+        } else {
+            mensagem.innerHTML = 'Erro ao atualizar'
+            mensagem.style.color = 'red'
+        }
+    })
+    .catch(err => {
+        console.error('Erro:', err)
+    })
+})

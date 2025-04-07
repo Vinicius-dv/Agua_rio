@@ -248,6 +248,50 @@ app.get('/info_user',(req,res)=>{
     })
   })
 
+  app.put('/atualizar_perfil', verificar_acesso(), (req, res) => {
+    const token = req.cookies.token
+  
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+      if (err) {
+        return res.status(401).json({ message: 'Token inválido', success: false })
+      }
+  
+      const { nome, senha, matricula, cpf, telefone } = req.body
+  
+      const camposAtualizados = {
+        nome,
+        matricula,
+        cpf,
+        telefone
+      }
+  
+      if (senha) {
+        bcrypt.hash(senha, 10)
+          .then(senhaHash => {
+            camposAtualizados.senha = senhaHash
+  
+            return cadastro.findOneAndUpdate({ email: user.email }, camposAtualizados, { new: true })
+          })
+          .then(usuarioAtualizado => {
+            return res.status(200).json({ message: 'Dados atualizados com sucesso!', success: true })
+          })
+          .catch(err => {
+            console.error('Erro ao atualizar usuário:', err)
+            return res.status(500).json({ message: 'Erro interno', success: false })
+          })
+      } else {
+        cadastro.findOneAndUpdate({ email: user.email }, camposAtualizados, { new: true })
+          .then(usuarioAtualizado => {
+            return res.status(200).json({ message: 'Dados atualizados com sucesso!', success: true })
+          })
+          .catch(err => {
+            console.error('Erro ao atualizar usuário:', err)
+            return res.status(500).json({ message: 'Erro interno', success: false })
+          })
+      }
+    })
+  })
+
 
 
 app.get('/verificar_codigo', (req, res) => {
