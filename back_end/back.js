@@ -302,6 +302,10 @@ app.get('/Login', (req, res) => {
   res.sendFile(path.join(__dirname, '../Login/login.html'))
 })
 
+app.get('/perfil.html',verificação() (req, res) => {
+  res.sendFile(path.join(__dirname, '../Perfil_user/perfil.html'))
+})
+
 app.delete('/logout', (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
