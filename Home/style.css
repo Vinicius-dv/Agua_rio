@@ -236,7 +236,7 @@
 
 
 .comentarios {
-    width: 90%;
+    width: 80%;
     background-color: white;
     border-radius: 10px;
     border: 2px solid black;
@@ -467,6 +467,10 @@ input[type="checkbox"] {
     .main_cards_comentarios {
         flex-direction: column;
         align-items: center;
+    }
+    
+    .comentarios{
+      width: 90%;
     }
 
     .cards_comentarios {

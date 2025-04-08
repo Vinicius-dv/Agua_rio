@@ -98,6 +98,7 @@
     }
     .right_cadastro{
         width: 100%;
+        padding: 10px;
     }
     .titulo_cad{
         margin-bottom: 20px;
@@ -105,9 +106,12 @@
     .titulo_cad h1{
         font-size: 1.4em;
     }
-
+    
+    .form_cadastro label{
+      margin-left: 5px;
+    }
+    
     .form_cadastro button{
         width: 250px;
-
     }
   }
