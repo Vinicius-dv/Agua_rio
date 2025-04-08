@@ -32,7 +32,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: blue;
-    border-radius: 10px;
+    border-radius: 10px 0px 0px 10px;
 }
 
 .left_cadastro img{
