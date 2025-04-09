@@ -264,21 +264,9 @@
 
     .div_button_texto button{
         margin-bottom: 4%;
-    }
-
-    .div_button_texto{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        margin-left: 0%;
-        height: auto;
-        margin-top: 20px;
-        border-bottom: 3px solid black;
-    }
-
-    .div_button_texto button{
-        margin-bottom: 4%;
+        font-size: 1.1em;
+        margin-right: 0px;
+        padding-right: 20px;
     }
 
 }
