@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (linkPerfil) linkPerfil.style.display = "block"
     } else {
       const cardCadastro = document.getElementById("main_cadastro")
-      if (cardCadastro) cardCadastro.style.display = "block"
+      if (cardCadastro) cardCadastro.style.display = "flex"
 
       const linkCadastro = document.getElementById("link_cadastro")
       if (linkCadastro) linkCadastro.style.display = "block"
