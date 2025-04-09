@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, '../Perfil_user')))
 app.use('/Login', express.static(path.join(__dirname, '../Login')))
 app.use(express.static(path.join(__dirname, '../imagens')))
 app.use('/logos', express.static(path.join(__dirname, '../logos/fwdlogocontasefaturas')))
-app.use('/imagens', express.static(path.join(__dirname, '../imagens')));
-
+app.use('/imagens', express.static(path.join(__dirname, '../imagens')))
+app.use('/Oque_fazemos', express.static(path.join(__dirname, '../Oque_fazemos')))
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Conectado ao MongoDB!'))
