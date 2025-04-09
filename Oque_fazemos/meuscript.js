@@ -72,3 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
       mensagem.style.color = 'red'
     })
   })
+
+
+document.getElementById('btn_whatsapp').addEventListener('click', function() {
+    window.open("https://wa.me/5516991950657", "_blank")
+})
