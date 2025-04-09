@@ -27,8 +27,6 @@ app.use('/logos', express.static(path.join(__dirname, '../logos/fwdlogocontasefa
 app.use('/imagens', express.static(path.join(__dirname, '../imagens')));
 
 
-
-console.log("URI do Mongo:", process.env.MONGO_URI)
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Conectado ao MongoDB!'))
 .catch(err => console.error('Erro ao conectar ao MongoDB:', err))
@@ -316,13 +314,3 @@ app.listen(3000, () => {
 })
 
 
-/*const token = jwt.sign(
-  { email: dados_temporario.email },
-  process.env.JWT_SECRET,
-  { expiresIn: '1h' }
-)
-res.cookie('token', token, {
-  httpOnly: true,
-  maxAge: 3600000,
-  sameSite: 'lax'
-})*/
