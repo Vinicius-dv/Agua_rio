@@ -308,6 +308,7 @@
 }
 
 .main_cadastro{
+    display: flex;
     margin: auto;
     margin-top: 7%;
     width: 80%;
@@ -315,7 +316,6 @@
     background-color: white;
     border-radius: 20px;
     border: 1px solid black;
-    display: flex;
 }
 
 .left_cadastro{
